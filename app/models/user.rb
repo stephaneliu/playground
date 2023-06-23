@@ -29,10 +29,10 @@ class User < ApplicationRecord
           where("notify_preferences->>'document_signatures_#{delivery_method}' = ?", val.to_s)
         }
 
-  scope :collaborations_notification,
+  scope :collabs_notification,
         ->(delivery_method, val) { where("notify_preferences->>'collaborations_#{delivery_method}' = ?", val.to_s) }
 
-  scope :collaboration_relevant_to_user_notification,
+  scope :relevant_collab_notification,
         ->(val) { where("notify_preferences->>'collaboration_relevant_to_user' = ?", val.to_s) }
 
   private
